@@ -9,4 +9,36 @@ Spring IoC(Inversion Of Contorl, 제어의 역전) 컨테이너가 관리하게 
 
 Spring은 하나 이상의 Bean을 가지게 되며 빈은 컨테이너에 등록된 인스턴스화 된 객체이다. 기본적으로 @Bean 어노테이션을 통해 스프링 컨테이너에 Bean이 등록된다. 사용의 가장 큰 목적은 Spring 간 객체의 의존관계를 관리하는 것에 있다.
  
+## Bean 의존성 주입 DI
+객체가 사용하는 의존 객체를 직접 생성(new)하는 것이 아닌 스프링 컨테이너에 주입 받아 사용하는 것
+**스프링 컨테이너의 객체 정보를 가져온다**
+필드 주입 방식, Setter 주입 방식, 생성자 주입 방식 등이 있다.
+
 ## Bean 등록
+* 필드 주입 방식
+```
+  @Autowired
+  private Repository repository;
+```
+@Autowired 어노테이션을 사용하여 고정적으로 주입한다.
+
+* Setter 주입 방식
+```
+private Repository repository;
+
+public void setRepository(Repository repository) {
+    this.repository = repository;
+}
+```
+
+* 생성자 주입 방식
+```
+@Service
+public class Service {
+		private final Repository repository;
+		
+		@Autowired
+		public Service(Repository repository) {
+		    this.repository = repository;
+		}
+```
