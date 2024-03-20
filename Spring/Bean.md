@@ -42,3 +42,24 @@ public class Service {
 		    this.repository = repository;
 		}
 ```
+
+## 어노테이션을 붙이는 클래스
+
+스프링은 약속되어 있는 특정 어노테이션이 붙은 클래스를 자동으로 인식한다.
+즉 어노테이션으로 붙여 스프링에서 관리할 수 있도록 어노테이션을 붙여준다.
+
+* @Component
+  스프링에서 관리하는 요소라는 의미를 주는 일반적인 어노테이션
+  개발자가 직접 작성한 특정한 Class를 Bean으로 등록하기 위함
+  @ComponentScan으로 주어진 패키지 내에서 @Component가 적용된 클래스를 식별하고 빈을 생성하여 ApplicationContext에 등록한다.
+  (value="") 옵션을 사용하여 특정 Bean ID를 가지게 할 수 있으며 사용하지 않으면 Class 이름을 Camel Case로 변경하여 ID를 가지게 된다.
+
+  ![image](https://github.com/yuyu2323/TIL/assets/45481189/e0ebf5f1-7699-4aa4-af0f-5c3cf2355ecc)
+
+아래 설명하는 어노테이션들은 각 기능을 세분화하여 가독성을 높이고, 어떠한 역할을 가지는지 명확하게 알 수 있도록 하는데 의미가 있다.
+
+* @Controller
+
+* @Service
+
+* @Repository
